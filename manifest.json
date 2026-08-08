@@ -1,7 +1,7 @@
 {
 	"id": "vault-name",
 	"name": "Vault Name",
-	"version": "0.1.9",
+	"version": "0.1.10",
 	"minAppVersion": "1.13.0",
 	"description": "Display and customize the vault name (title) in the side navigation file explorer.",
 	"author": "@gapmiss",
