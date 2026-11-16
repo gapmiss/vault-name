@@ -1,26 +1,18 @@
-import tseslint from "typescript-eslint";
+import { defineConfig, globalIgnores } from "eslint/config";
 import obsidianmd from "eslint-plugin-obsidianmd";
 
-export default [
-    { ignores: ["node_modules/**", "main.js", "*.mjs", "package.json", "package-lock.json", "versions.json", "tsconfig.json"] },
-    ...tseslint.configs.recommendedTypeChecked.map(config => ({
-        ...config,
-        files: ["**/*.ts"],
-    })),
+export default defineConfig([
+    globalIgnores(["node_modules", "main.js", "*.mjs", "package-lock.json", "versions.json", "tsconfig.json"]),
     ...obsidianmd.configs.recommended,
     {
-        files: ["**/*.ts"],
         languageOptions: {
-            parser: tseslint.parser,
             parserOptions: {
                 project: "./tsconfig.json",
-                sourceType: "module",
-            },
-            globals: {
-                activeDocument: "readonly",
-                activeWindow: "readonly",
             },
         },
+    },
+    {
+        files: ["**/*.ts"],
         rules: {
             "obsidianmd/prefer-active-doc": "error",
             "obsidianmd/ui/sentence-case": "off",
@@ -31,4 +23,4 @@ export default [
             }],
         },
     },
-];
+]);

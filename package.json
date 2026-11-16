@@ -15,16 +15,22 @@
 	"author": "",
 	"license": "MIT",
 	"devDependencies": {
-		"@types/node": "^20.19.41",
-		"esbuild": "^0.28.1",
-		"eslint": "^8.57.1",
-		"eslint-plugin-obsidianmd": "^0.3.0",
-		"obsidian": "^1.13.1",
+		"@types/node": "^20.19.43",
+		"esbuild": "^0.28.2",
+		"eslint": "^9.39.5",
+		"eslint-plugin-obsidianmd": "^0.6.0",
+		"obsidian": "^1.14.4",
 		"tslib": "2.4.0",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.59.4"
+		"typescript-eslint": "^8.73.0"
 	},
 	"allowScripts": {
-		"esbuild@0.28.1": true
+		"esbuild@0.28.2": true
+	},
+	"//": [
+		"overrides.minimatch: temporary fix for GHSA-g3hv-75wg-m249; remove once upstream depends on minimatch 11."
+	],
+	"overrides": {
+		"minimatch@>=7 <11.0.1": "^11.0.5"
 	}
 }
